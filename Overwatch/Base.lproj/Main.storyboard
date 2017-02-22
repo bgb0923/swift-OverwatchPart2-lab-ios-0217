@@ -1,8 +1,99 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Qtc-dZ-IQU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Selection View Controller-->
+        <scene sceneID="ltu-44-k1x">
+            <objects>
+                <viewController id="Qtc-dZ-IQU" customClass="SelectionViewController" customModule="Overwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QuJ-Jd-GIQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xmw-of-Dza"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M98-pS-e78">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1DE-EE-nh0">
+                                <rect key="frame" x="36" y="619" width="303" height="29"/>
+                                <segments>
+                                    <segment title="Offense"/>
+                                    <segment title="Defense"/>
+                                    <segment title="Tank"/>
+                                    <segment title="Support"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeInHeroType:" destination="Qtc-dZ-IQU" eventType="valueChanged" id="uMW-Br-dnX"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctc-wk-dge" userLabel="Container View">
+                                <rect key="frame" x="47" y="83" width="281" height="501"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwP-Hb-FdH" userLabel="Hero Scroll View">
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="501"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4OZ-NA-c2O" userLabel="Character Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="1405" height="501"/>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="4OZ-NA-c2O" secondAttribute="trailing" id="7Ud-71-jei"/>
+                                            <constraint firstItem="4OZ-NA-c2O" firstAttribute="leading" secondItem="dwP-Hb-FdH" secondAttribute="leading" id="LnM-id-hQj"/>
+                                            <constraint firstItem="4OZ-NA-c2O" firstAttribute="top" secondItem="dwP-Hb-FdH" secondAttribute="top" id="UuF-MI-Hui"/>
+                                            <constraint firstAttribute="bottom" secondItem="4OZ-NA-c2O" secondAttribute="bottom" id="Vvr-lg-4wF"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="4OZ-NA-c2O" firstAttribute="height" secondItem="ctc-wk-dge" secondAttribute="height" id="66n-lg-o6T"/>
+                                    <constraint firstAttribute="bottom" secondItem="dwP-Hb-FdH" secondAttribute="bottom" id="O3h-un-LOe"/>
+                                    <constraint firstItem="dwP-Hb-FdH" firstAttribute="top" secondItem="ctc-wk-dge" secondAttribute="top" id="PXe-zs-aZ6"/>
+                                    <constraint firstAttribute="trailing" secondItem="dwP-Hb-FdH" secondAttribute="trailing" id="XRC-pr-9zR"/>
+                                    <constraint firstItem="dwP-Hb-FdH" firstAttribute="leading" secondItem="ctc-wk-dge" secondAttribute="leading" id="Xjl-94-aVu"/>
+                                    <constraint firstItem="4OZ-NA-c2O" firstAttribute="width" secondItem="ctc-wk-dge" secondAttribute="width" multiplier="5" id="yWa-Wu-q9c"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wk8-4P-4CV">
+                                <rect key="frame" x="0.0" y="52.5" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1DE-EE-nh0" firstAttribute="leading" secondItem="M98-pS-e78" secondAttribute="leadingMargin" constant="20" id="1ek-3E-VYY"/>
+                            <constraint firstItem="wk8-4P-4CV" firstAttribute="bottom" secondItem="ctc-wk-dge" secondAttribute="top" constant="-10" id="8vf-QD-Iz7"/>
+                            <constraint firstItem="1DE-EE-nh0" firstAttribute="trailing" secondItem="M98-pS-e78" secondAttribute="trailingMargin" constant="-20" id="FDE-ot-7Jm"/>
+                            <constraint firstItem="ctc-wk-dge" firstAttribute="height" secondItem="M98-pS-e78" secondAttribute="height" multiplier="0.75" id="Tv8-CN-oLf"/>
+                            <constraint firstItem="wk8-4P-4CV" firstAttribute="width" secondItem="M98-pS-e78" secondAttribute="width" id="Xhh-wz-rM1"/>
+                            <constraint firstItem="Xmw-of-Dza" firstAttribute="top" secondItem="1DE-EE-nh0" secondAttribute="bottom" constant="20" id="YVC-3q-8WL"/>
+                            <constraint firstItem="ctc-wk-dge" firstAttribute="centerY" secondItem="M98-pS-e78" secondAttribute="centerY" id="ZgS-BJ-vga"/>
+                            <constraint firstItem="ctc-wk-dge" firstAttribute="width" secondItem="M98-pS-e78" secondAttribute="width" multiplier="0.75" id="c6x-pn-Zyr"/>
+                            <constraint firstItem="wk8-4P-4CV" firstAttribute="centerX" secondItem="M98-pS-e78" secondAttribute="centerX" id="frS-9y-HGi"/>
+                            <constraint firstItem="ctc-wk-dge" firstAttribute="centerX" secondItem="M98-pS-e78" secondAttribute="centerX" id="qd8-XE-IjS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="characterStackView" destination="4OZ-NA-c2O" id="zYr-No-9Ns"/>
+                        <outlet property="containerView" destination="ctc-wk-dge" id="XUL-kK-e9r"/>
+                        <outlet property="heroNameLabel" destination="wk8-4P-4CV" id="Hd4-gd-QmB"/>
+                        <outlet property="heroScrollView" destination="dwP-Hb-FdH" id="bcI-xE-uda"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wDf-re-sju" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-311.19999999999999" y="-224.4377811094453"/>
+        </scene>
+    </scenes>
 </document>
